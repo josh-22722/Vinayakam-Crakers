@@ -2,5 +2,7 @@
   "name": "Vinayakam Cracker — Direct Manufacturer",
   "description": "Diwali 2026 direct booking from Vinayakam Cracker's own manufacturing plant. Factory-fresh in-house fireworks, master price list, and WhatsApp estimate generator.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
