@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { StoreProvider, useStore } from './context/StoreContext';
 import { Navbar } from './components/Navbar';
 import { MobileBottomNav } from './components/MobileBottomNav';
@@ -23,11 +24,23 @@ import { SpecDocModal } from './components/SpecDocModal';
 import { Footer } from './components/Footer';
 import { CheckCircle2 } from 'lucide-react';
 
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+};
+
 const MainAppContent: React.FC = () => {
-  const { activeView, toastMessage } = useStore();
+  const { toastMessage } = useStore();
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors duration-200">
+      <ScrollToTop />
+
       {/* Floating Elements (WhatsApp right-down, Theme left-down, Desktop Spin left-down) */}
       <FixedWhatsApp />
       <FloatingThemeToggle />
@@ -36,39 +49,53 @@ const MainAppContent: React.FC = () => {
       {/* Main Navigation Header (Responsive & Aligned on Web & Mobile) */}
       <Navbar />
 
-      {/* Main View Router */}
+      {/* Main View HashRouter Routes */}
       <main className="flex-1 pb-24 lg:pb-0">
-        {activeView === 'home' && (
-          <>
-            <HeroSection />
-            <TrustStrip />
-            <CategoryShowcase />
-            <FeaturedCombos />
-            <CouponBanner />
-            <BrandsSection />
-            <TestimonialsAndFaq />
-          </>
-        )}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <TrustStrip />
+                <CategoryShowcase />
+                <FeaturedCombos />
+                <CouponBanner />
+                <BrandsSection />
+                <TestimonialsAndFaq />
+              </>
+            }
+          />
 
-        {activeView === 'shop' && <ShopCatalogPage />}
+          <Route path="/shop" element={<ShopCatalogPage />} />
 
-        {activeView === 'pricelist' && <PriceListPage />}
+          <Route path="/pricelist" element={<PriceListPage />} />
 
-        {activeView === 'combos' && (
-          <div className="space-y-8">
-            <FeaturedCombos />
-            <ShopCatalogPage />
-          </div>
-        )}
+          <Route
+            path="/combos"
+            element={
+              <div className="space-y-8">
+                <FeaturedCombos />
+                <ShopCatalogPage />
+              </div>
+            }
+          />
 
-        {activeView === 'brands' && (
-          <div className="space-y-8">
-            <BrandsSection />
-            <ShopCatalogPage />
-          </div>
-        )}
+          <Route
+            path="/brands"
+            element={
+              <div className="space-y-8">
+                <BrandsSection />
+                <ShopCatalogPage />
+              </div>
+            }
+          />
 
-        {activeView === 'about' && <AboutAndContact />}
+          <Route path="/about" element={<AboutAndContact />} />
+
+          {/* Catch-all fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
       {/* Persistent Mobile Bottom Navigation Bar (Guarantees nav is 100% visible on mobile) */}
@@ -99,8 +126,10 @@ const MainAppContent: React.FC = () => {
 
 export default function App() {
   return (
-    <StoreProvider>
-      <MainAppContent />
-    </StoreProvider>
+    <HashRouter>
+      <StoreProvider>
+        <MainAppContent />
+      </StoreProvider>
+    </HashRouter>
   );
 }

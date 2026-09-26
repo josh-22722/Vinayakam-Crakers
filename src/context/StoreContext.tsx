@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Product, EnquiryItem, Coupon } from '../types';
 import { PRODUCTS } from '../data/products';
 
@@ -182,8 +183,29 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [wishlist]);
 
-  // Navigation & View state
-  const [activeView, setActiveView] = useState<'home' | 'shop' | 'pricelist' | 'combos' | 'brands' | 'about' | 'spec'>('home');
+  // Navigation & View state synchronized with HashRouter
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const getPathView = (pathname: string): 'home' | 'shop' | 'pricelist' | 'combos' | 'brands' | 'about' | 'spec' => {
+    const clean = pathname.replace(/^\/+/, '').toLowerCase();
+    if (clean === 'shop') return 'shop';
+    if (clean === 'pricelist') return 'pricelist';
+    if (clean === 'combos') return 'combos';
+    if (clean === 'brands') return 'brands';
+    if (clean === 'about') return 'about';
+    if (clean === 'spec') return 'spec';
+    return 'home';
+  };
+
+  const activeView = getPathView(location.pathname);
+
+  const setActiveView = (view: 'home' | 'shop' | 'pricelist' | 'combos' | 'brands' | 'about' | 'spec') => {
+    const targetPath = view === 'home' ? '/' : `/${view}`;
+    if (location.pathname !== targetPath) {
+      navigate(targetPath);
+    }
+  };
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
