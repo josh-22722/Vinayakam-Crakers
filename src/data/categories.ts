@@ -1,4 +1,5 @@
 import { Category } from '../types';
+import { ASSET_IMAGES } from '../assets/images';
 
 export const CATEGORIES: Category[] = [
   {
@@ -7,7 +8,7 @@ export const CATEGORIES: Category[] = [
     description: 'Electric and golden handheld sparklers, 100% safe for all ages with vibrant illumination.',
     itemCount: 7,
     iconName: 'Sparkles',
-    highlightImage: '/src/assets/images/category_sparklers_diyas_1790418876586.jpg',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'ground-chakkars',
@@ -15,6 +16,7 @@ export const CATEGORIES: Category[] = [
     description: 'Classic ground revolving fire-wheels with radiant multicolored circular sparks.',
     itemCount: 6,
     iconName: 'RotateCw',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'flower-pots',
@@ -22,7 +24,7 @@ export const CATEGORIES: Category[] = [
     description: 'Majestic upright golden and silver cone fountains spraying up to 25 feet high.',
     itemCount: 5,
     iconName: 'Flame',
-    highlightImage: '/src/assets/images/category_sparklers_diyas_1790418876586.jpg',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'fountains',
@@ -30,6 +32,7 @@ export const CATEGORIES: Category[] = [
     description: 'Musical, color-changing, and chocolate cascade fountains for dazzling family yards.',
     itemCount: 6,
     iconName: 'Waves',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'aerial-sky-shot',
@@ -37,7 +40,7 @@ export const CATEGORIES: Category[] = [
     description: 'High-altitude single and repeat skybursts reaching 100+ feet with thunderous claps.',
     itemCount: 6,
     iconName: 'Rocket',
-    highlightImage: '/src/assets/images/category_aerial_shots_1790418856020.jpg',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'multicolour-sky-shot',
@@ -45,7 +48,7 @@ export const CATEGORIES: Category[] = [
     description: 'Grand pyrotechnic repeaters with crackling brocades, willow palms, and strobe pearls.',
     itemCount: 4,
     iconName: 'Sparkle',
-    highlightImage: '/src/assets/images/category_aerial_shots_1790418856020.jpg',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'kids-crackers',
@@ -53,6 +56,7 @@ export const CATEGORIES: Category[] = [
     description: 'Mild, eco-certified novelty items: Magic Pops, Ring Caps, Snake Tablets, and Cartoon sticks.',
     itemCount: 7,
     iconName: 'Smile',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'rockets',
@@ -60,6 +64,7 @@ export const CATEGORIES: Category[] = [
     description: 'High thrust whistle & boom sky rockets with dazzling trajectory sparks.',
     itemCount: 5,
     iconName: 'Send',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'bombs',
@@ -67,6 +72,7 @@ export const CATEGORIES: Category[] = [
     description: 'Heavy bass acoustic sound crackers built in Vinayakam tested thick casings.',
     itemCount: 5,
     iconName: 'Zap',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'wala-garland',
@@ -74,6 +80,7 @@ export const CATEGORIES: Category[] = [
     description: 'Traditional continuous strung crackers from 100 Wala up to 5,000 Wala grand rolls.',
     itemCount: 5,
     iconName: 'Link',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'gift-box',
@@ -81,7 +88,7 @@ export const CATEGORIES: Category[] = [
     description: 'Curated premium festival gift hampers in gold-embossed presentation boxes.',
     itemCount: 5,
     iconName: 'Gift',
-    highlightImage: '/src/assets/images/category_gift_boxes_1790418843801.jpg',
+    highlightImage: ASSET_IMAGES.giftBoxes,
   },
   {
     id: 'one-sound-crackers',
@@ -89,6 +96,7 @@ export const CATEGORIES: Category[] = [
     description: 'Timeless traditional single-crack sound units manufactured by Vinayakam (Kuruvi, Lakshmi, Elephant).',
     itemCount: 4,
     iconName: 'Volume2',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'combo-pack',
@@ -96,7 +104,7 @@ export const CATEGORIES: Category[] = [
     description: 'All-in-one family celebration bundles with up to 80% direct factory savings.',
     itemCount: 4,
     iconName: 'PackageCheck',
-    highlightImage: '/src/assets/images/category_gift_boxes_1790418843801.jpg',
+    highlightImage: ASSET_IMAGES.giftBoxes,
   },
   {
     id: 'twinkling-star',
@@ -104,6 +112,7 @@ export const CATEGORIES: Category[] = [
     description: 'Pencil-type continuous star showers and neon flares.',
     itemCount: 3,
     iconName: 'Star',
+    highlightImage: ASSET_IMAGES.sparklers,
   },
   {
     id: 'bijili',
@@ -111,6 +120,7 @@ export const CATEGORIES: Category[] = [
     description: 'Rapid crackling micro-crackers in red, green, and striped assortments.',
     itemCount: 3,
     iconName: 'Radio',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'whistling-items',
@@ -118,6 +128,7 @@ export const CATEGORIES: Category[] = [
     description: 'High-pitch sonic screamer rockets, revolving whistle chakkars, and siren spinners.',
     itemCount: 3,
     iconName: 'Music',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'paper-bomb',
@@ -125,6 +136,7 @@ export const CATEGORIES: Category[] = [
     description: 'Safe eco-friendly multilayer paper sound crackers with deep reverberating boom.',
     itemCount: 3,
     iconName: 'FileText',
+    highlightImage: ASSET_IMAGES.aerialShots,
   },
   {
     id: 'brand-assortments',
@@ -132,5 +144,6 @@ export const CATEGORIES: Category[] = [
     description: 'Exclusive in-house tier assortments from Vinayakam Signature and Royal Pyro manufacturing wings.',
     itemCount: 4,
     iconName: 'Award',
+    highlightImage: ASSET_IMAGES.giftBoxes,
   },
 ];

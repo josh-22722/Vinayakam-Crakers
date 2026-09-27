@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Play, Pause, Wifi, Sparkles, Factory } from 'lucide-react';
+import { ASSET_IMAGES } from '../assets/images';
 
 interface ManufacturingStage {
   id: number;
@@ -13,25 +14,25 @@ const MANUFACTURING_STAGES: ManufacturingStage[] = [
     id: 1,
     stageNumber: '01',
     title: 'Paper Tube Rolling',
-    image: '/src/assets/images/mfg_process_workshop_1790419865818.jpg',
+    image: ASSET_IMAGES.workshop,
   },
   {
     id: 2,
     stageNumber: '02',
     title: 'Sparkler Testing',
-    image: '/src/assets/images/mfg_sparkler_testing_1790419883704.jpg',
+    image: ASSET_IMAGES.testing,
   },
   {
     id: 3,
     stageNumber: '03',
     title: 'Aerial Assembly',
-    image: '/src/assets/images/category_aerial_shots_1790418856020.jpg',
+    image: ASSET_IMAGES.aerialShots,
   },
   {
     id: 4,
     stageNumber: '04',
     title: 'Moisture Sealing',
-    image: '/src/assets/images/category_gift_boxes_1790418843801.jpg',
+    image: ASSET_IMAGES.giftBoxes,
   },
 ];
 
