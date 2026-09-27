@@ -177,7 +177,7 @@ export const ManufacturingVideoBackground: React.FC = () => {
               <img
                 src={stage.image}
                 alt={stage.title}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-center sm:object-[center_35%]"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -195,9 +195,9 @@ export const ManufacturingVideoBackground: React.FC = () => {
         className="absolute inset-0 pointer-events-none opacity-50 mix-blend-screen"
       />
 
-      {/* 4. Minimalist, Uncluttered Floating Factory Badge (No huge paragraphs) */}
-      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20">
-        <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-stone-900/85 backdrop-blur-md border border-amber-500/30 text-white shadow-xl text-xs">
+      {/* 4. Minimalist, Interactive Floating Factory Badge */}
+      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-20">
+        <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-stone-900/90 backdrop-blur-md border border-amber-500/30 text-white shadow-xl text-xs">
           <div className="flex items-center gap-1.5 font-bold text-amber-300">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] tracking-wide">Vinayakam Factory</span>
@@ -205,11 +205,28 @@ export const ManufacturingVideoBackground: React.FC = () => {
 
           <span className="text-stone-600">|</span>
 
+          {/* Interactive Slide Dots */}
+          <div className="flex items-center gap-1.5" title="Switch slideshow slide">
+            {MANUFACTURING_STAGES.map((stg, idx) => (
+              <button
+                key={stg.id}
+                onClick={() => setCurrentStageIdx(idx)}
+                className={`h-2 rounded-full transition-all cursor-pointer ${
+                  idx === currentStageIdx
+                    ? 'w-4 bg-amber-400'
+                    : 'w-2 bg-stone-600 hover:bg-stone-400'
+                }`}
+                title={`Stage ${stg.stageNumber}: ${stg.title}`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
           <span className="text-[11px] text-stone-300 font-medium hidden sm:inline">
             {currentStage.title}
           </span>
 
-          <div className="flex items-center gap-1 ml-1">
+          <div className="flex items-center gap-1 ml-1 border-l border-stone-800 pl-1.5">
             <button
               onClick={() => setIsLowBandwidth(!isLowBandwidth)}
               className={`px-1.5 py-0.5 rounded text-[10px] font-bold cursor-pointer transition-colors ${

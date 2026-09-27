@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, FileSpreadsheet, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { WHATSAPP_NUMBER } from '../utils/helpers';
 import { ManufacturingVideoBackground } from './ManufacturingVideoBackground';
@@ -8,33 +8,33 @@ export const HeroSection: React.FC = () => {
   const { setActiveView, setSelectedCategory } = useStore();
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white min-h-[560px] lg:min-h-[620px] flex items-center">
+    <section className="relative overflow-hidden bg-slate-950 text-white min-h-[480px] lg:min-h-[560px] flex items-center">
       {/* Low-Bandwidth Looping Video Background Element */}
       <ManufacturingVideoBackground />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
-        <div className="max-w-2xl space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
+        <div className="max-w-2xl space-y-5">
           
           {/* Crisp, Natural Kicker */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider text-amber-300 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-            <span>Direct In-House Factory · Diwali 2026 Bookings Open</span>
+            <span>DIWALI 2026 COLLECTIONS</span>
           </div>
 
           {/* Clean, Punchy Headline */}
-          <h1 className="brand-display text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight text-balance">
-            Diwali 2026 Factory Prices
+          <h1 className="brand-display text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight text-balance">
+            LIGHT UP
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-red-400 mt-1">
-              Direct from Vinayakam Manufacturer
+              YOUR DIWALI
             </span>
           </h1>
 
-          {/* Concise, Informative Subtitle (No clumsy essay) */}
+          {/* Concise, Informative Subtitle */}
           <p className="text-base sm:text-lg text-stone-200 leading-relaxed text-balance">
-            Order fresh festival crackers directly from our own manufacturing plant. Enjoy <strong className="text-amber-300 font-bold">75% to 80% genuine wholesale savings</strong> with CSIR-NEERI green certification, zero middleman markups, and fast all-India lorry transport.
+            Premium crackers for unforgettable celebrations.
           </p>
 
-          {/* Perfectly Aligned CTA Buttons */}
+          {/* CTA Buttons */}
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <button
               onClick={() => {
@@ -45,14 +45,6 @@ export const HeroSection: React.FC = () => {
             >
               <span>Explore Catalog</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={() => setActiveView('pricelist')}
-              className="h-12 px-5 rounded-xl bg-stone-900/80 hover:bg-stone-800 text-amber-300 border border-amber-500/30 hover:border-amber-400 font-semibold text-sm backdrop-blur-md transition-all hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
-            >
-              <FileSpreadsheet className="w-4 h-4 text-amber-400" />
-              <span>Price List</span>
             </button>
 
             <a
